@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login Smart Campus</title>
+
+<!-- JQUERY -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+
+body{
+
+  margin:0;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  height:100vh;
+
+  background:#fdf2f7;
+
+  font-family:'Segoe UI',sans-serif;
+
+}
+
+
+
+/* LOGIN BOX */
+.login-box{
+
+  background:white;
+
+  width:320px;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+  text-align:center;
+
+  animation:fade 0.5s;
+
+}
+
+
+
+/* ANIMATION */
+@keyframes fade{
+
+  from{
+
+    opacity:0;
+    transform:translateY(20px);
+
+  }
+
+  to{
+
+    opacity:1;
+    transform:translateY(0);
+
+  }
+
+}
+
+
+
+.login-box h1{
+
+  color:#1e2a38;
+
+  margin-bottom:10px;
+
+}
+
+
+
+.login-box p{
+
+  margin-bottom:20px;
+
+  color:gray;
+
+}
+
+
+
+/* INPUT */
+input{
+
+  width:100%;
+
+  padding:12px;
+
+  margin-top:12px;
+
+  border-radius:10px;
+
+  border:1px solid #ccc;
+
+  outline:none;
+
+  box-sizing:border-box;
+
+  transition:0.3s;
+
+}
+
+input:focus{
+
+  border-color:#f8c8dc;
+
+}
+
+
+
+/* BUTTON */
+button{
+
+  width:100%;
+
+  padding:12px;
+
+  margin-top:20px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:#1e2a38;
+
+  color:white;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+button:hover{
+
+  background:#f8c8dc;
+
+  color:#1e2a38;
+
+}
+
+
+
+/* ERROR */
+small{
+
+  color:red;
+
+  display:block;
+
+  text-align:left;
+
+  margin-top:4px;
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<div class="login-box">
+
+  <h1>
+    Smart Campus 🚀
+  </h1>
+
+  <p>
+    Login dulu yuk!!
+  </p>
+
+
+
+  <!-- USERNAME -->
+  <input 
+    type="text"
+    id="username"
+    placeholder="Masukkan username"
+  >
+
+  <small id="userError"></small>
+
+
+
+  <!-- PASSWORD -->
+  <input 
+    type="password"
+    id="password"
+    placeholder="Masukkan password"
+  >
+
+  <small id="passError"></small>
+
+
+
+  <!-- BUTTON -->
+  <button id="loginBtn">
+
+    LOGIN
+
+  </button>
+
+</div>
+
+
+
+<script>
+
+// LOGIN BUTTON
+$("#loginBtn").click(function(){
+
+  let username = $("#username").val();
+
+  let password = $("#password").val();
+
+
+
+  // RESET ERROR
+  $("#userError").text("");
+
+  $("#passError").text("");
+
+
+
+  let valid = true;
+
+
+
+  // USERNAME
+  if(username == ""){
+
+    $("#userError").text(
+      "Username wajib diisi"
+    );
+
+    valid = false;
+
+  }
+
+
+
+  // PASSWORD
+  if(password.length < 6){
+
+    $("#passError").text(
+      "Password minimal 6 karakter"
+    );
+
+    valid = false;
+
+  }
+
+
+
+  // LOGIN SUCCESS
+  if(valid){
+
+    localStorage.setItem(
+      "username",
+      username
+    );
+
+    alert(
+      "Login berhasil 🚀"
+    );
+
+    // PINDAH HALAMAN
+    window.location.href =
+    "index.html";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

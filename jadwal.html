@@ -1,0 +1,291 @@
+<div class="card">
+
+  <h2>📅 Jadwal Kuliah Bela</h2>
+
+  <p class="subtitle">
+    Semester 4 • Komputerisasi Akuntansi 🚀
+  </p>
+
+</div>
+
+
+<!-- SENIN -->
+<div class="card jadwal-card">
+
+  <div class="hari">
+    Senin
+  </div>
+
+  <div class="matkul">
+
+    <h3>Analisa & Perancangan Sistem Informasi</h3>
+
+    <p>🕢 07.30 - 10.00</p>
+
+    <span>📍 Ruang Kelas</span>
+
+  </div>
+
+  <div class="matkul">
+
+    <h3>KPAM IV (PAL)</h3>
+
+    <p>🕙 10.10 - 11.00</p>
+
+    <span>📍 Ruang Praktikum</span>
+
+  </div>
+
+</div>
+
+
+<!-- SELASA -->
+<div class="card jadwal-card">
+
+  <div class="hari pink">
+    Selasa
+  </div>
+
+  <div class="matkul">
+
+    <h3>Sistem Informasi Akuntansi</h3>
+
+    <p>🕢 07.30 - 10.00</p>
+
+    <span>📍 Ruang Akuntansi</span>
+
+  </div>
+
+  <div class="matkul">
+
+    <h3>Instalasi Komputer & Jaringan</h3>
+
+    <p>🕙 10.10 - 11.50</p>
+
+    <span>📍 Lab Komputer</span>
+
+  </div>
+
+  <div class="matkul">
+
+    <h3>Pemograman Web Mobile</h3>
+
+    <p>🕜 13.30 - 16.00</p>
+
+    <span>📍 Lab Mobile</span>
+
+  </div>
+
+</div>
+
+
+<!-- RABU -->
+<div class="card jadwal-card">
+
+  <div class="hari">
+    Rabu
+  </div>
+
+  <div class="empty-day">
+
+    🎉 Tidak ada jadwal kuliah hari ini
+
+  </div>
+
+</div>
+
+
+<!-- KAMIS -->
+<div class="card jadwal-card">
+
+  <div class="hari pink">
+    Kamis
+  </div>
+
+  <div class="matkul">
+
+    <h3>Manajemen Keuangan</h3>
+
+    <p>🕢 07.30 - 10.00</p>
+
+    <span>📍 Ruang Keuangan</span>
+
+  </div>
+
+  <div class="matkul">
+
+    <h3>Perilaku Organisasi</h3>
+
+    <p>🕙 10.10 - 11.50</p>
+
+    <span>📍 Ruang Diskusi</span>
+
+  </div>
+
+  <div class="matkul">
+
+    <h3>Pendidikan Agama Islam II</h3>
+
+    <p>🕜 13.30 - 15.15</p>
+
+    <span>📍 Ruang Agama</span>
+
+  </div>
+
+</div>
+
+
+<!-- JUMAT -->
+<div class="card jadwal-card">
+
+  <div class="hari">
+    Jum'at
+  </div>
+
+  <div class="matkul">
+
+    <h3>Pemograman WEB II</h3>
+
+    <p>🕢 07.30 - 10.00</p>
+
+    <span>📍 Lab Web</span>
+
+  </div>
+
+</div>
+
+
+<!-- SABTU -->
+<div class="card jadwal-card">
+
+  <div class="hari pink">
+    Sabtu
+  </div>
+
+  <div class="empty-day">
+
+    🚀 Tidak ada jadwal kuliah
+
+    <br><br>
+
+    Tapi ada kegiatan organisasi kampus:
+    <b>UKM CC</b> 💖
+
+  </div>
+
+</div>
+
+
+<style>
+
+.subtitle{
+  color:gray;
+  margin-top:8px;
+}
+
+/* card jadwal */
+.jadwal-card{
+  margin-top:20px;
+}
+
+/* hari */
+.hari{
+  background:#1e2a38;
+  color:white;
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
+  font-weight:bold;
+  margin-bottom:15px;
+  font-size:18px;
+}
+
+.hari.pink{
+  background:#f8c8dc;
+  color:#1e2a38;
+}
+
+/* matkul */
+.matkul{
+  background:#fdf2f7;
+  padding:16px;
+  border-radius:14px;
+  margin-top:12px;
+  border-left:5px solid #f8c8dc;
+  transition:0.3s;
+}
+
+.matkul:hover{
+  transform:translateX(6px);
+}
+
+.matkul h3{
+  margin-bottom:8px;
+  color:#1e2a38;
+  font-size:17px;
+}
+
+.matkul p{
+  margin-bottom:5px;
+}
+
+.matkul span{
+  color:gray;
+  font-size:14px;
+}
+
+/* empty */
+.empty-day{
+  background:#fff0f5;
+  padding:18px;
+  border-radius:12px;
+  text-align:center;
+  line-height:1.7;
+  border:2px dashed #f8c8dc;
+}
+
+/* mobile */
+@media(max-width:600px){
+
+  .matkul{
+    padding:14px;
+  }
+
+  .hari{
+    font-size:16px;
+  }
+
+}
+
+</style>
+
+
+<script>
+
+// highlight hari sekarang
+const today = new Date().getDay();
+
+const hariList = [
+  "",
+  "Senin",
+  "Selasa",
+  "Rabu",
+  "Kamis",
+  "Jum'at",
+  "Sabtu"
+];
+
+const semuaHari = document.querySelectorAll(".hari");
+
+semuaHari.forEach(function(item){
+
+  if(item.innerHTML.trim() == hariList[today]){
+
+    item.style.background = "#ff69b4";
+    item.style.color = "white";
+
+  }
+
+});
+
+</script>

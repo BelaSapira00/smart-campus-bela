@@ -1,0 +1,282 @@
+<div class="card profile-card">
+
+  <img src="profil.jpeg" class="profile-img">
+
+  <h2>Bela Sapira 👋</h2>
+
+  <p class="bio">
+    Mahasiswa Komputerisasi Akuntansi yang memiliki minat besar
+    di dunia teknologi, UI/UX, dan pengembangan aplikasi mobile.
+    Sedang aktif mengembangkan skill di bidang web development
+    serta bercita-cita menjadi seorang guru yang inspiratif
+    sekaligus profesional di dunia teknologi 🚀
+  </p>
+
+</div>
+
+
+
+<!-- BIODATA -->
+<div class="card">
+
+  <h2>📌 Biodata</h2>
+
+  <div class="info-item">
+    <span>🎓 Jurusan</span>
+    <p>Komputerisasi Akuntansi</p>
+  </div>
+
+  <div class="info-item">
+    <span>🏫 Semester</span>
+    <p>Semester 4</p>
+  </div>
+
+  <div class="info-item">
+    <span>💻 Skill Utama</span>
+    <p>HTML, CSS, JavaScript, jQuery</p>
+  </div>
+
+  <div class="info-item">
+    <span>🎯 Cita-cita</span>
+    <p>Guru & Tech Enthusiast</p>
+  </div>
+
+</div>
+
+
+
+<!-- SKILLS -->
+<div class="card">
+
+  <h2>🚀 Skills</h2>
+
+  <div class="skill">
+    <p>HTML</p>
+
+    <div class="skill-bar">
+      <div class="skill-fill html">
+        90%
+      </div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <p>CSS</p>
+
+    <div class="skill-bar">
+      <div class="skill-fill css">
+        85%
+      </div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <p>JavaScript</p>
+
+    <div class="skill-bar">
+      <div class="skill-fill js">
+        75%
+      </div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <p>UI/UX Design</p>
+
+    <div class="skill-bar">
+      <div class="skill-fill ui">
+        80%
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- SOCIAL MEDIA -->
+<div class="card">
+
+  <h2>🌐 Contact & Social Media</h2>
+
+  <a href="https://www.instagram.com/etherealvibes102?igsh=anNnMWFrcHV4cWMw" target="_blank" class="social-btn">
+    📸 Instagram
+  </a>
+
+  <a href="https://wa.me/6285750946084" target="_blank" class="social-btn">
+    💬 WhatsApp
+  </a>
+
+  <a href="belasapira271gmail.com" class="social-btn">
+    📧 Email
+  </a>
+
+  <a href="https://github.com/BelaSapira00/" target="_blank" class="social-btn">
+    💻 GitHub
+  </a>
+
+</div>
+
+
+
+<!-- MOTIVATION -->
+<div class="card">
+
+  <h2>✨ Quote</h2>
+
+  <p id="quote">
+    Loading...
+  </p>
+
+</div>
+
+
+
+<style>
+
+.profile-card{
+  text-align:center;
+  background:linear-gradient(135deg,#f8c8dc,#ffdce8);
+}
+
+.profile-img{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #1e2a38;
+  margin-bottom:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.bio{
+  line-height:1.8;
+}
+
+
+
+/* BIODATA */
+.info-item{
+  background:#fdf2f7;
+  padding:15px;
+  border-radius:14px;
+  margin-top:12px;
+  border-left:5px solid #f8c8dc;
+}
+
+.info-item span{
+  font-weight:bold;
+  color:#1e2a38;
+}
+
+.info-item p{
+  margin-top:5px;
+}
+
+
+
+/* SKILLS */
+.skill{
+  margin-top:18px;
+}
+
+.skill p{
+  margin-bottom:8px;
+}
+
+.skill-bar{
+  width:100%;
+  background:#eee;
+  border-radius:30px;
+  overflow:hidden;
+}
+
+.skill-fill{
+  padding:10px;
+  color:white;
+  text-align:center;
+  font-weight:bold;
+  border-radius:30px;
+}
+
+.html{
+  width:90%;
+  background:#ff69b4;
+}
+
+.css{
+  width:85%;
+  background:#1e2a38;
+}
+
+.js{
+  width:75%;
+  background:#ff8fab;
+}
+
+.ui{
+  width:80%;
+  background:#32485f;
+}
+
+
+
+/* SOCIAL */
+.social-btn{
+  display:block;
+  text-decoration:none;
+
+  background:#1e2a38;
+  color:white;
+
+  padding:14px;
+  border-radius:14px;
+
+  margin-top:12px;
+
+  transition:0.3s;
+  text-align:center;
+}
+
+.social-btn:hover{
+  background:#f8c8dc;
+  color:#1e2a38;
+}
+
+
+
+/* MOBILE */
+@media(max-width:600px){
+
+  .profile-img{
+    width:110px;
+    height:110px;
+  }
+
+}
+
+</style>
+
+
+
+<script>
+
+// QUOTES
+const quotes = [
+
+  "Belajar hari ini adalah investasi untuk masa depan 🚀",
+
+  "Jangan takut berkembang perlahan ✨",
+
+  "Skill hebat dimulai dari keberanian mencoba 💖",
+
+  "Mimpi besar dimulai dari langkah kecil 🔥"
+
+];
+
+let randomQuote = Math.floor(Math.random() * quotes.length);
+
+document.getElementById("quote").innerHTML =
+quotes[randomQuote];
+
+</script>

@@ -1,0 +1,227 @@
+<div class="card notif-card">
+
+  <h2>🔔 Notifikasi</h2>
+
+  <p class="sub">
+    Semua update terbaru kampus dan tugas kamu ada di sini ✨
+  </p>
+
+</div>
+
+
+
+<!-- NOTIF ITEM -->
+<div class="card notif-item unread">
+
+  <div class="notif-icon">
+    📚
+  </div>
+
+  <div class="notif-content">
+
+    <h3>Tugas Baru Ditambahkan</h3>
+
+    <p>
+      Tugas Pemrograman WEB II harus dikumpulkan sebelum Jumat.
+    </p>
+
+    <small>
+      5 menit lalu
+    </small>
+
+  </div>
+
+</div>
+
+
+
+<div class="card notif-item">
+
+  <div class="notif-icon">
+    📅
+  </div>
+
+  <div class="notif-content">
+
+    <h3>Jadwal Hari Ini</h3>
+
+    <p>
+      Kamu memiliki kelas Sistem Informasi Akuntansi pukul 07.30.
+    </p>
+
+    <small>
+      1 jam lalu
+    </small>
+
+  </div>
+
+</div>
+
+
+
+<div class="card notif-item">
+
+  <div class="notif-icon">
+    🎉
+  </div>
+
+  <div class="notif-content">
+
+    <h3>Selamat!</h3>
+
+    <p>
+      Progress project Smart Campus kamu sudah mencapai 75%.
+    </p>
+
+    <small>
+      Kemarin
+    </small>
+
+  </div>
+
+</div>
+
+
+
+<div class="card notif-item">
+
+  <div class="notif-icon">
+    🚀
+  </div>
+
+  <div class="notif-content">
+
+    <h3>Motivasi Hari Ini</h3>
+
+    <p id="motivasi">
+      Loading...
+    </p>
+
+    <small>
+      Hari ini
+    </small>
+
+  </div>
+
+</div>
+
+
+
+<style>
+
+.notif-card{
+  text-align:center;
+  background:linear-gradient(135deg,#f8c8dc,#ffdce8);
+}
+
+.sub{
+  margin-top:10px;
+  color:#444;
+}
+
+
+
+/* ITEM */
+.notif-item{
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.notif-item:hover{
+  transform:translateY(-3px);
+}
+
+
+
+/* ICON */
+.notif-icon{
+  min-width:55px;
+  height:55px;
+
+  border-radius:50%;
+
+  background:#f8c8dc;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:25px;
+}
+
+
+
+/* CONTENT */
+.notif-content h3{
+  margin-bottom:6px;
+  color:#1e2a38;
+}
+
+.notif-content p{
+  color:#444;
+  line-height:1.6;
+}
+
+.notif-content small{
+  display:block;
+  margin-top:8px;
+  color:gray;
+}
+
+
+
+/* UNREAD */
+.unread{
+  border-left:6px solid #ff69b4;
+}
+
+
+
+/* MOBILE */
+@media(max-width:600px){
+
+  .notif-item{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+}
+
+</style>
+
+
+
+<script>
+
+// MOTIVASI RANDOM
+const motivasi = [
+
+  "Tetap semangat belajar walaupun tugas numpuk 😭🔥",
+
+  "Skill hebat dibangun dari latihan kecil setiap hari 🚀",
+
+  "Jangan menyerah hanya karena prosesnya lama ✨",
+
+  "Kamu lebih berkembang daripada yang kamu kira 💖"
+
+];
+
+let randomMotivasi = Math.floor(Math.random() * motivasi.length);
+
+document.getElementById("motivasi").innerHTML =
+motivasi[randomMotivasi];
+
+
+
+// KLIK NOTIF
+$(".notif-item").click(function(){
+
+  $(this).removeClass("unread");
+
+});
+
+</script>

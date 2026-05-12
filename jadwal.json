@@ -1,0 +1,63 @@
+{
+  "senin": [
+    {
+      "matkul": "Analisa & Perancangan Sistem Informasi",
+      "jam": "07.30 - 10.00"
+    },
+    {
+      "matkul": "KPAM IV (PAL)",
+      "jam": "10.10 - 11.00"
+    }
+  ],
+
+  "selasa": [
+    {
+      "matkul": "Sistem Informasi Akuntansi",
+      "jam": "07.30 - 10.00"
+    },
+    {
+      "matkul": "Instalasi Komputer & Jaringan",
+      "jam": "10.10 - 11.50"
+    },
+    {
+      "matkul": "Pemograman Web Mobile",
+      "jam": "13.30 - 16.00"
+    }
+  ],
+
+  "rabu": [
+    {
+      "matkul": "Tidak ada jadwal",
+      "jam": "Free Day 🚀"
+    }
+  ],
+
+  "kamis": [
+    {
+      "matkul": "Manajemen Keuangan",
+      "jam": "07.30 - 10.00"
+    },
+    {
+      "matkul": "Perilaku Organisasi",
+      "jam": "10.10 - 11.50"
+    },
+    {
+      "matkul": "Pendidikan Agama Islam II",
+      "jam": "13.30 - 15.15"
+    }
+  ],
+
+  "jumat": [
+    {
+      "matkul": "Pemograman WEB II",
+      "jam": "07.30 - 10.00"
+    }
+  ],
+
+  "sabtu": [
+    {
+      "matkul": "UKM CC",
+      "jam": "Organisasi Kampus"
+    }
+  ]
+}

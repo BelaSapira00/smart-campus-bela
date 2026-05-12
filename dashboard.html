@@ -1,0 +1,351 @@
+<div class="card home-card">
+
+<img src="profil.jpeg" class="profile-img">
+
+  <h2>Halo Bela Sapira 👋</h2>
+
+  <p>
+    Selamat datang di Smart Campus Mobile 🚀
+    Platform sederhana yang membantu mahasiswa
+    mengatur jadwal, tugas, target belajar,
+    dan aktivitas kampus dengan lebih modern,
+    praktis, dan mobile friendly.
+  </p>
+
+</div>
+
+
+
+<!-- JADWAL HARI INI -->
+<div class="card">
+
+  <h2>📚 Jadwal Hari Ini</h2>
+
+  <div id="jadwalHariIni"></div>
+
+</div>
+
+
+
+<!-- PROGRESS TUGAS -->
+<div class="card">
+
+  <h2>🎯 Progress Tugas</h2>
+
+  <div id="progressTugas"></div>
+
+</div>
+
+
+
+<!-- MOTIVASI -->
+<div class="card">
+
+  <h2>💡 Daily Motivation</h2>
+
+  <p id="quote">
+    Loading...
+  </p>
+
+</div>
+
+
+
+<style>
+
+.home-card{
+  text-align:center;
+  background:linear-gradient(135deg,#f8c8dc,#ffdbe8);
+}
+
+.profile-img{
+
+  width:140px;
+  height:140px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  border:5px solid #f8c8dc;
+
+  display:block;
+
+  margin:auto;
+
+}
+
+.card h2{
+  margin-bottom:15px;
+  color:#1e2a38;
+}
+
+.card p{
+  line-height:1.8;
+  font-size:16px;
+}
+
+
+
+/* JADWAL */
+.jadwal-item{
+  background:#fdf2f7;
+  padding:15px;
+  border-radius:14px;
+  margin-top:15px;
+  border-left:6px solid #f8c8dc;
+  transition:0.3s;
+}
+
+.jadwal-item:hover{
+  transform:translateX(5px);
+}
+
+.jadwal-item h3{
+  margin-bottom:6px;
+  color:#1e2a38;
+}
+
+
+
+/* PROGRESS */
+.progress-bar{
+  width:100%;
+  background:#ececec;
+  border-radius:30px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.progress-fill{
+  width:75%;
+  background:#f8c8dc;
+  color:#1e2a38;
+  padding:10px;
+  text-align:center;
+  font-weight:bold;
+  border-radius:30px;
+}
+
+.second{
+  width:65%;
+  background:#1e2a38;
+  color:white;
+}
+
+
+
+/* MOBILE */
+@media(max-width:600px){
+
+  .profile{
+    width:100px;
+    height:100px;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+}
+
+</style>
+
+
+
+<script>
+
+// ==========================
+// RANDOM QUOTE
+// ==========================
+
+const quotes = [
+
+  "Jangan takut gagal, takutlah untuk tidak mencoba 🚀",
+
+  "Proses tidak akan mengkhianati hasil ✨",
+
+  "Belajar sedikit setiap hari lebih baik daripada tidak sama sekali 💖",
+
+  "Masa depan dibangun dari konsistensi hari ini 🔥",
+
+  "Skill berkembang dimulai dari keberanian belajar 😎"
+
+];
+
+let random = Math.floor(Math.random() * quotes.length);
+
+document.getElementById("quote").innerHTML = quotes[random];
+
+
+
+// ==========================
+// AUTO JADWAL HARI INI
+// ==========================
+
+const hari = new Date().getDay();
+
+let jadwal = "";
+
+
+// SENIN
+if(hari == 1){
+
+  jadwal += `
+
+  <div class="jadwal-item">
+    <h3>📘 Analisa & Perancangan Sistem Informasi</h3>
+    <p>07.30 - 10.00</p>
+  </div>
+
+  <div class="jadwal-item">
+    <h3>📗 KPAM IV (PAL)</h3>
+    <p>10.10 - 11.00</p>
+  </div>
+
+  `;
+
+}
+
+
+// SELASA
+else if(hari == 2){
+
+  jadwal += `
+
+  <div class="jadwal-item">
+    <h3>📙 Sistem Informasi Akuntansi</h3>
+    <p>07.30 - 10.00</p>
+  </div>
+
+  <div class="jadwal-item">
+    <h3>💻 Instalasi Komputer & Jaringan</h3>
+    <p>10.10 - 11.50</p>
+  </div>
+
+  <div class="jadwal-item">
+    <h3>📱 Pemograman Web Mobile</h3>
+    <p>13.30 - 16.00</p>
+  </div>
+
+  `;
+
+}
+
+
+// RABU
+else if(hari == 3){
+
+  jadwal += `
+
+  <div class="jadwal-item">
+    <h3>🎉 Tidak ada jadwal kuliah hari ini</h3>
+    <p>Enjoy your day Bela 😆</p>
+  </div>
+
+  `;
+
+}
+
+
+// KAMIS
+else if(hari == 4){
+
+  jadwal += `
+
+  <div class="jadwal-item">
+    <h3>💰 Manajemen Keuangan</h3>
+    <p>07.30 - 10.00</p>
+  </div>
+
+  <div class="jadwal-item">
+    <h3>🧠 Perilaku Organisasi</h3>
+    <p>10.10 - 11.50</p>
+  </div>
+
+  <div class="jadwal-item">
+    <h3>🕌 Pendidikan Agama Islam II</h3>
+    <p>13.30 - 15.15</p>
+  </div>
+
+  `;
+
+}
+
+
+// JUMAT
+else if(hari == 5){
+
+  jadwal += `
+
+  <div class="jadwal-item">
+    <h3>🌐 Pemograman WEB II</h3>
+    <p>07.30 - 10.00</p>
+  </div>
+
+  `;
+
+}
+
+
+// SABTU
+else if(hari == 6){
+
+  jadwal += `
+
+  <div class="jadwal-item">
+    <h3>🚀 UKM CC</h3>
+    <p>Kegiatan organisasi kampus</p>
+  </div>
+
+  `;
+
+}
+
+
+// MINGGU
+else{
+
+  jadwal += `
+
+  <div class="jadwal-item">
+    <h3>🌸 Hari Libur</h3>
+    <p>Waktunya recharge energi ✨</p>
+  </div>
+
+  `;
+
+}
+
+
+document.getElementById("jadwalHariIni").innerHTML = jadwal;
+
+
+
+// ==========================
+// AUTO PROGRESS TUGAS
+// ==========================
+
+document.getElementById("progressTugas").innerHTML = `
+
+<p>📱 Smart Campus Mobile</p>
+
+<div class="progress-bar">
+  <div class="progress-fill">
+    75%
+  </div>
+</div>
+
+<br>
+
+<p>🌐 Pemograman WEB II</p>
+
+<div class="progress-bar">
+  <div class="progress-fill second">
+    65%
+  </div>
+</div>
+
+`;
+
+</script>

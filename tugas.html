@@ -1,0 +1,312 @@
+<div class="card">
+
+  <h2>📚 Daftar Tugas</h2>
+
+  <p class="subtitle">
+    Kelola tugas kuliahmu biar deadline gak nyerang dadakan 😭🚀
+  </p>
+
+</div>
+
+
+<!-- TUGAS 1 -->
+<div class="card tugas-card">
+
+  <div class="tugas-header">
+
+    <h3>💻 Project Smart Campus Mobile</h3>
+
+    <span class="deadline">
+      Deadline: 25 Mei
+    </span>
+
+  </div>
+
+  <p>
+    Membuat aplikasi mobile campus berbasis web responsive.
+  </p>
+
+  <div class="progress-bar">
+    <div class="progress-fill" style="width:75%;">
+      75%
+    </div>
+  </div>
+
+  <button class="selesai-btn">
+    Tandai Selesai
+  </button>
+
+</div>
+
+
+<!-- TUGAS 2 -->
+<div class="card tugas-card">
+
+  <div class="tugas-header">
+
+    <h3>📊 Sistem Informasi Akuntansi</h3>
+
+    <span class="deadline">
+      Deadline: 28 Mei
+    </span>
+
+  </div>
+
+  <p>
+    Membuat flowchart dan analisis sistem perusahaan.
+  </p>
+
+  <div class="progress-bar">
+    <div class="progress-fill navy" style="width:50%;">
+      50%
+    </div>
+  </div>
+
+  <button class="selesai-btn">
+    Tandai Selesai
+  </button>
+
+</div>
+
+
+<!-- TUGAS 3 -->
+<div class="card tugas-card">
+
+  <div class="tugas-header">
+
+    <h3>📝 Perilaku Organisasi</h3>
+
+    <span class="deadline">
+      Deadline: 30 Mei
+    </span>
+
+  </div>
+
+  <p>
+    Membuat presentasi tentang budaya organisasi modern.
+  </p>
+
+  <div class="progress-bar">
+    <div class="progress-fill pink2" style="width:90%;">
+      90%
+    </div>
+  </div>
+
+  <button class="selesai-btn">
+    Tandai Selesai
+  </button>
+
+</div>
+
+
+<!-- TAMBAH TUGAS -->
+<div class="card">
+
+  <h2>➕ Tambah Tugas Baru</h2>
+
+  <input type="text" id="namaTugas" placeholder="Nama tugas">
+
+  <input type="date" id="deadlineTugas">
+
+  <button id="tambahTugas">
+    Simpan Tugas
+  </button>
+
+</div>
+
+
+<!-- LIST TUGAS BARU -->
+<div id="listTugasBaru"></div>
+
+
+<style>
+
+.subtitle{
+  color:gray;
+  margin-top:8px;
+}
+
+/* tugas */
+.tugas-card{
+  margin-top:20px;
+}
+
+.tugas-header{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.tugas-header h3{
+  color:#1e2a38;
+  font-size:18px;
+}
+
+.deadline{
+  background:#f8c8dc;
+  color:#1e2a38;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* progress */
+.progress-bar{
+  width:100%;
+  background:#eee;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:15px;
+}
+
+.progress-fill{
+  background:#f8c8dc;
+  color:#1e2a38;
+  text-align:center;
+  padding:8px;
+  font-weight:bold;
+}
+
+.progress-fill.navy{
+  background:#1e2a38;
+  color:white;
+}
+
+.progress-fill.pink2{
+  background:#ff69b4;
+  color:white;
+}
+
+/* button */
+.selesai-btn{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:#1e2a38;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:bold;
+}
+
+.selesai-btn:hover{
+  background:#f8c8dc;
+  color:#1e2a38;
+}
+
+/* input */
+input{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border-radius:12px;
+  border:1px solid #ccc;
+}
+
+#tambahTugas{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:#ff69b4;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* tugas baru */
+.tugas-baru{
+  margin-top:20px;
+  background:#fff0f5;
+  border-left:5px solid #ff69b4;
+  padding:15px;
+  border-radius:12px;
+}
+
+/* mobile */
+@media(max-width:600px){
+
+  .tugas-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+}
+
+</style>
+
+
+<script>
+
+// tombol selesai
+document.querySelectorAll(".selesai-btn").forEach(function(btn){
+
+  btn.addEventListener("click",function(){
+
+    btn.innerHTML = "✅ Tugas Selesai";
+    btn.style.background = "#ff69b4";
+    btn.style.color = "white";
+
+  });
+
+});
+
+
+// load localstorage
+if(localStorage.getItem("tugasBaru")){
+
+  document.getElementById("listTugasBaru").innerHTML =
+  localStorage.getItem("tugasBaru");
+
+}
+
+
+// tambah tugas
+document.getElementById("tambahTugas").addEventListener("click",function(){
+
+  let nama =
+  document.getElementById("namaTugas").value;
+
+  let deadline =
+  document.getElementById("deadlineTugas").value;
+
+  if(nama == "" || deadline == ""){
+
+    alert("Isi dulu tugasnya 😭");
+    return;
+
+  }
+
+  let tugas = `
+  
+  <div class="card tugas-baru">
+
+    <h3>📌 ${nama}</h3>
+
+    <p>Deadline: ${deadline}</p>
+
+  </div>
+
+  `;
+
+  document.getElementById("listTugasBaru").innerHTML += tugas;
+
+  // simpan
+  localStorage.setItem(
+    "tugasBaru",
+    document.getElementById("listTugasBaru").innerHTML
+  );
+
+  // reset input
+  document.getElementById("namaTugas").value = "";
+  document.getElementById("deadlineTugas").value = "";
+
+});
+
+</script>

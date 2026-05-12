@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Campus Bela</title>
+
+<!-- JQUERY -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- MANIFEST -->
+<link rel="manifest" href="manifest.json">
+
+<!-- THEME -->
+<meta name="theme-color" content="#1e2a38">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<style>
+
+:root{
+
+  --navy:#1e2a38;
+  --pink:#f8c8dc;
+  --pink2:#ff69b4;
+  --bg:#fdf2f7;
+  --white:#ffffff;
+
+}
+
+*{
+
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+
+}
+
+body{
+
+  background:var(--bg);
+  color:var(--navy);
+
+}
+
+
+
+/* SPLASH */
+#splash{
+
+  position:fixed;
+
+  width:100%;
+  height:100vh;
+
+  background:linear-gradient(
+    135deg,
+    var(--navy),
+    #32485f
+  );
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+
+  color:white;
+
+  z-index:9999;
+
+}
+
+#splash h1{
+
+  font-size:35px;
+
+}
+
+#splash p{
+
+  margin-top:10px;
+  color:#ddd;
+
+}
+
+
+
+/* NAVBAR */
+nav{
+
+  background:var(--navy);
+
+  color:white;
+
+  padding:16px 20px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  position:sticky;
+  top:0;
+
+  z-index:1000;
+
+}
+
+
+
+/* LOGO */
+.logo{
+
+  font-size:25px;
+  font-weight:bold;
+
+}
+
+
+
+/* NOTIFICATION */
+.notif-btn{
+
+  position:relative;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+.notif-btn:hover{
+
+  transform:scale(1.1);
+
+}
+
+
+
+/* BADGE */
+.notif-badge{
+
+  position:absolute;
+
+  top:-5px;
+  right:-8px;
+
+  background:#ff4d6d;
+  color:white;
+
+  width:18px;
+  height:18px;
+
+  border-radius:50%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:11px;
+  font-weight:bold;
+
+}
+
+
+
+/* CONTENT */
+#content{
+
+  padding:20px;
+  margin-bottom:100px;
+
+  animation:fade 0.4s;
+
+}
+
+
+
+/* ANIMATION */
+@keyframes fade{
+
+  from{
+
+    opacity:0;
+    transform:translateY(10px);
+
+  }
+
+  to{
+
+    opacity:1;
+    transform:translateY(0);
+
+  }
+
+}
+
+
+
+/* CARD */
+.card{
+
+  background:white;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+  margin-bottom:20px;
+
+}
+
+
+
+/* FLOAT BUTTON */
+.fab{
+
+  position:fixed;
+
+  bottom:90px;
+  right:20px;
+
+  width:58px;
+  height:58px;
+
+  border:none;
+  border-radius:50%;
+
+  background:var(--pink);
+  color:var(--navy);
+
+  font-size:30px;
+
+  cursor:pointer;
+
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+  transition:0.3s;
+
+  z-index:999;
+
+}
+
+.fab:hover{
+
+  transform:scale(1.1);
+
+}
+
+
+
+/* TOAST */
+#toast{
+
+  position:fixed;
+
+  top:20px;
+  right:20px;
+
+  background:var(--navy);
+  color:white;
+
+  padding:14px 18px;
+
+  border-radius:12px;
+
+  display:none;
+
+  z-index:9999;
+
+}
+
+
+
+/* BOTTOM NAV */
+.bottom-nav{
+
+  position:fixed;
+
+  bottom:0;
+
+  width:100%;
+
+  background:white;
+
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+
+  padding:14px;
+
+  box-shadow:0 -3px 10px rgba(0,0,0,0.1);
+
+  z-index:999;
+
+}
+
+.bottom-nav a{
+
+  text-decoration:none;
+
+  color:var(--navy);
+
+  font-size:14px;
+  font-weight:bold;
+
+  transition:0.3s;
+
+}
+
+.bottom-nav a:hover{
+
+  color:var(--pink2);
+
+}
+
+.bottom-nav .active{
+
+  color:var(--pink2);
+
+}
+
+
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .logo{
+
+    font-size:22px;
+
+  }
+
+  .notif-btn{
+
+    font-size:25px;
+
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<script>
+
+if(
+  !localStorage.getItem("username")
+){
+
+  window.location.href =
+  "login.html";
+
+}
+
+</script>
+
+<!-- SPLASH -->
+<div id="splash">
+
+  <h1>
+    Smart Campus
+  </h1>
+
+  <p>
+    Welcome Bela 🚀
+  </p>
+
+</div>
+
+
+
+<!-- NAVBAR -->
+<nav>
+
+  <div class="logo">
+    SmartCampus
+  </div>
+
+  <!-- NOTIFICATION -->
+  <div 
+    class="notif-btn menu"
+    data-page="notifikasi.html"
+  >
+
+    🔔
+
+    <span class="notif-badge">
+      3
+    </span>
+
+  </div>
+
+</nav>
+
+
+
+<!-- CONTENT -->
+<div id="content"></div>
+
+
+
+<!-- FLOAT BUTTON -->
+<button class="fab">
+  +
+</button>
+
+
+
+<!-- TOAST -->
+<div id="toast">
+  Selamat datang Bela 💖
+</div>
+
+
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+
+  <a 
+    href="#"
+    class="menu active"
+    data-page="dashboard.html"
+  >
+    🏠 Home
+  </a>
+
+  <a 
+    href="#"
+    class="menu"
+    data-page="jadwal.html"
+  >
+    📅 Jadwal
+  </a>
+
+  <a 
+    href="#"
+    class="menu"
+    data-page="tugas.html"
+  >
+    📚 Tugas
+  </a>
+
+  <a 
+    href="#"
+    class="menu"
+    data-page="profil.html"
+  >
+    👤 Profil
+  </a>
+
+</div>
+
+
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+
+
+
+<!-- SERVICE WORKER -->
+<script>
+
+if("serviceWorker" in navigator){
+
+  window.addEventListener(
+    "load",
+    function(){
+
+      navigator.serviceWorker.register(
+        "service-worker.js"
+      )
+
+      .then(function(){
+
+        console.log(
+          "Service Worker berhasil 🚀"
+        );
+
+      })
+
+      .catch(function(error){
+
+        console.log(
+          "Service Worker gagal 😭",
+          error
+        );
+
+      });
+
+    }
+  );
+
+}
+
+</script>
+
+</body>
+</html>

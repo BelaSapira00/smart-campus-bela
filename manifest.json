@@ -1,0 +1,25 @@
+{
+  "name": "Smart Campus Bela",
+  "short_name": "SmartCampus",
+  "start_url": "login.html",
+  "display": "standalone",
+  "background_color": "#1e2a38",
+  "theme_color": "#f8c8dc",
+  "orientation": "portrait",
+
+  "icons": [
+
+    {
+      "src": "icon-192-1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+
+    {
+      "src": "icon-512-1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+
+  ]
+}
