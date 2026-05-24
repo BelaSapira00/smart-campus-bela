@@ -7,10 +7,8 @@
 
 <title>Smart Campus Bela</title>
 
-<!-- PWA -->
 <link rel="manifest" href="manifest.json">
 
-<!-- JQUERY -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
@@ -39,6 +37,23 @@ body{
 /* DARK MODE */
 body.dark-mode{
   background:#121212;
+  color:white;
+}
+
+body.dark-mode nav{
+  background:#0d1117;
+}
+
+body.dark-mode .card{
+  background:#1e1e1e;
+  color:white;
+}
+
+body.dark-mode .bottom-nav{
+  background:#1e1e1e;
+}
+
+body.dark-mode .bottom-nav a{
   color:white;
 }
 
@@ -83,16 +98,8 @@ nav{
   position:sticky;
   top:0;
   z-index:1000;
-  flex-wrap:wrap;
 }
 
-body.dark-mode nav{
-  background:#0d1117;
-}
-
-
-
-/* LOGO */
 .logo{
   font-size:24px;
   font-weight:bold;
@@ -100,38 +107,11 @@ body.dark-mode nav{
 
 
 
-/* HAMBURGER */
-.menu-toggle{
-  display:none;
-  font-size:28px;
-  cursor:pointer;
-}
-
-
-
-/* MENU */
-#navMenu{
-  list-style:none;
+/* RIGHT MENU */
+.right-menu{
   display:flex;
+  align-items:center;
   gap:15px;
-}
-
-#navMenu li a{
-  color:white;
-  text-decoration:none;
-  padding:8px 14px;
-  border-radius:10px;
-  transition:0.3s;
-}
-
-#navMenu li a:hover{
-  background:var(--pink);
-  color:var(--navy);
-}
-
-.active{
-  background:var(--pink);
-  color:var(--navy)!important;
 }
 
 
@@ -159,12 +139,6 @@ body.dark-mode nav{
   border-radius:20px;
   box-shadow:0 5px 15px rgba(0,0,0,0.08);
   margin-bottom:20px;
-  transition:0.3s;
-}
-
-body.dark-mode .card{
-  background:#1e1e1e;
-  color:white;
 }
 
 
@@ -172,55 +146,53 @@ body.dark-mode .card{
 /* FLOAT BUTTON */
 .fab{
   position:fixed;
-  bottom:90px;
   right:20px;
+  bottom:90px;
+
   width:55px;
   height:55px;
-  border-radius:50%;
+
   border:none;
+  border-radius:50%;
+
   background:var(--pink);
   color:var(--navy);
+
   font-size:28px;
+
   cursor:pointer;
+
+  z-index:9999;
+
   box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 
 
 /* THEME BUTTON */
-.theme-toggle{
+#themeToggle{
 
   position:fixed;
 
+  left:20px;
   bottom:90px;
 
-  left:20px;
+  width:60px;
+  height:60px;
 
-  width:55px;
-
-  height:55px;
-
+  border:none;
   border-radius:50%;
 
   background:#1e2a38;
-
   color:white;
 
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  font-size:24px;
+  font-size:26px;
 
   cursor:pointer;
 
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  z-index:999999;
 
-  z-index:99999;
-
-  transition:0.3s;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
 
 }
 
@@ -231,11 +203,17 @@ body.dark-mode .card{
   position:fixed;
   top:20px;
   right:20px;
+
   background:var(--navy);
   color:white;
+
   padding:12px 18px;
+
   border-radius:10px;
+
   display:none;
+
+  z-index:99999;
 }
 
 
@@ -244,17 +222,19 @@ body.dark-mode .card{
 .bottom-nav{
   position:fixed;
   bottom:0;
+
   width:100%;
+
   background:white;
+
   display:flex;
   justify-content:space-around;
-  padding:14px;
-  box-shadow:0 -3px 10px rgba(0,0,0,0.1);
-  z-index:999;
-}
 
-body.dark-mode .bottom-nav{
-  background:#1e1e1e;
+  padding:14px;
+
+  box-shadow:0 -3px 10px rgba(0,0,0,0.1);
+
+  z-index:999;
 }
 
 .bottom-nav a{
@@ -264,31 +244,13 @@ body.dark-mode .bottom-nav{
   font-weight:bold;
 }
 
-body.dark-mode .bottom-nav a{
-  color:white;
-}
-
 
 
 /* MOBILE */
 @media(max-width:768px){
 
-  .menu-toggle{
-    display:block;
-  }
-
-  #navMenu{
-    display:none;
-    flex-direction:column;
-    width:100%;
-    background:var(--navy);
-    margin-top:15px;
-    padding:10px;
-    border-radius:12px;
-  }
-
-  #navMenu.show{
-    display:flex;
+  .bottom-nav a{
+    font-size:12px;
   }
 
 }
@@ -324,16 +286,15 @@ body.dark-mode .bottom-nav a{
 
 
 
-  <!-- HAMBURGER -->
-  <div class="menu-toggle">
-    ☰
-  </div>
+  <div class="right-menu">
 
+    <!-- NOTIF -->
+    <div class="notif-btn menu"
+         data-page="notifikasi.html">
 
-  <!-- NOTIF -->
-  <div class="notif-btn menu" data-page="notifikasi.html">
+      🔔
 
-    🔔
+    </div>
 
   </div>
 
@@ -355,12 +316,12 @@ body.dark-mode .bottom-nav a{
 
 
 
-<!-- THEME -->
-<div class="theme-toggle" id="themeToggle">
+<!-- THEME BUTTON -->
+<button id="themeToggle">
 
   ☀️
 
-</div>
+</button>
 
 
 
@@ -376,20 +337,42 @@ body.dark-mode .bottom-nav a{
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
 
-  <a href="#" class="menu active" data-page="dashboard.html">
+  <a href="#"
+     class="menu active"
+     data-page="dashboard.html">
+
     🏠 Home
+
   </a>
 
-  <a href="#" class="menu" data-page="jadwal.html">
+
+
+  <a href="#"
+     class="menu"
+     data-page="jadwal.html">
+
     📅 Jadwal
+
   </a>
 
-  <a href="#" class="menu" data-page="tugas.html">
+
+
+  <a href="#"
+     class="menu"
+     data-page="tugas.html">
+
     📚 Tugas
+
   </a>
 
-  <a href="#" class="menu" data-page="profil.html">
+
+
+  <a href="#"
+     class="menu"
+     data-page="profil.html">
+
     👤 Profil
+
   </a>
 
 </div>
