@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+
+
   // SPLASH
   setTimeout(function(){
 
@@ -14,6 +16,7 @@ $(document).ready(function(){
     },2000);
 
   },2000);
+
 
 
 
@@ -39,27 +42,46 @@ $(document).ready(function(){
 
 
 
-  // MENU
-  $(document).on("click",".menu",function(e){
+  // MENU CLICK
+  $(document).on(
+    "click",
+    ".menu",
+    function(e){
 
-    e.preventDefault();
+      e.preventDefault();
 
-    $(".menu").removeClass("active");
+      $(".menu").removeClass(
+        "active"
+      );
 
-    $(this).addClass("active");
+      $(this).addClass(
+        "active"
+      );
 
-    let page = $(this).data("page");
+      let page = $(this).data(
+        "page"
+      );
 
-    loadPage(page);
-
-  });
+      loadPage(page);
 
 
 
-  // NOTIFICATION
-  $(document).on("click",".notif-btn",function(){
+      // AUTO CLOSE MOBILE MENU
+      $("#navMenu").removeClass(
+        "show"
+      );
 
-    loadPage("notifikasi.html");
+    }
+  );
+
+
+
+  // HAMBURGER
+  $(".menu-toggle").click(function(){
+
+    $("#navMenu").toggleClass(
+      "show"
+    );
 
   });
 
@@ -68,69 +90,49 @@ $(document).ready(function(){
   // FLOAT BUTTON
   $(".fab").click(function(){
 
-    alert("🚀 Tombol aksi ditekan!");
+    alert(
+      "🚀 Tombol aksi ditekan!"
+    );
 
   });
 
 
 
-  // =========================
-  // LOGIN
-  // =========================
+  // DARK MODE
+  $("#themeToggle").click(function(){
 
-  $(document).on("click","#loginBtn",function(){
-
-    let username = $("#username").val();
-
-    let password = $("#password").val();
-
-    $("#userError").text("");
-    $("#passError").text("");
-
-    let valid = true;
+    $("body").toggleClass(
+      "dark-mode"
+    );
 
 
 
-    // USERNAME
-    if(username == ""){
+    // ICON
+    if(
+      $("body").hasClass(
+        "dark-mode"
+      )
+    ){
 
-      $("#userError").text(
-        "Username wajib diisi"
+      $("#themeToggle").html(
+        "🌙"
       );
-
-      valid = false;
-
-    }
-
-
-
-    // PASSWORD
-    if(password.length < 6){
-
-      $("#passError").text(
-        "Password minimal 6 karakter"
-      );
-
-      valid = false;
-
-    }
-
-
-
-    // LOGIN SUCCESS
-    if(valid){
 
       localStorage.setItem(
-        "username",
-        username
+        "theme",
+        "dark"
       );
 
-      alert(
-        "Login berhasil 🚀"
+    }else{
+
+      $("#themeToggle").html(
+        "☀️"
       );
 
-      window.location.href =
-      "index.html";
+      localStorage.setItem(
+        "theme",
+        "light"
+      );
 
     }
 
@@ -138,10 +140,97 @@ $(document).ready(function(){
 
 
 
-  // =========================
-  // LOGOUT
-  // =========================
+  // LOAD THEME
+  if(
+    localStorage.getItem(
+      "theme"
+    ) == "dark"
+  ){
 
+    $("body").addClass(
+      "dark-mode"
+    );
+
+    $("#themeToggle").html(
+      "🌙"
+    );
+
+  }
+
+
+
+  // LOGIN
+  $(document).on(
+    "click",
+    "#loginBtn",
+    function(){
+
+      let username =
+      $("#username").val();
+
+      let password =
+      $("#password").val();
+
+
+
+      $("#userError").text("");
+      $("#passError").text("");
+
+
+
+      let valid = true;
+
+
+
+      // USERNAME
+      if(username == ""){
+
+        $("#userError").text(
+          "Username wajib diisi"
+        );
+
+        valid = false;
+
+      }
+
+
+
+      // PASSWORD
+      if(password.length < 6){
+
+        $("#passError").text(
+          "Password minimal 6 karakter"
+        );
+
+        valid = false;
+
+      }
+
+
+
+      // LOGIN SUCCESS
+      if(valid){
+
+        localStorage.setItem(
+          "username",
+          username
+        );
+
+        alert(
+          "Login berhasil 🚀"
+        );
+
+        window.location.href =
+        "index.html";
+
+      }
+
+    }
+  );
+
+
+
+  // LOGOUT
   $(document).on(
     "click",
     "#logoutBtn",
@@ -160,26 +249,5 @@ $(document).ready(function(){
   );
 
 
-
-  // =========================
-  // INSTALL PWA
-  // =========================
-
-  let deferredPrompt;
-
-  window.addEventListener(
-    "beforeinstallprompt",
-    (e)=>{
-
-      e.preventDefault();
-
-      deferredPrompt = e;
-
-      console.log(
-        "PWA siap diinstall 🚀"
-      );
-
-    }
-  );
 
 });
