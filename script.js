@@ -2,9 +2,7 @@ $(document).ready(function(){
 
 
 
-  // =========================
-  // SPLASH SCREEN
-  // =========================
+  // SPLASH
   setTimeout(function(){
 
     $("#splash").fadeOut();
@@ -22,36 +20,12 @@ $(document).ready(function(){
 
 
 
-  // =========================
   // LOAD PAGE
-  // =========================
   function loadPage(page){
 
     $("#content").fadeOut(200,function(){
 
-      $("#content").load(page,function(response,status){
-
-        if(status == "error"){
-
-          $("#content").html(
-
-            `
-            <div class="card">
-
-              <h2>
-                Halaman tidak ditemukan 😭
-              </h2>
-
-              <p>
-                File <b>${page}</b> belum ada atau gagal dimuat.
-              </p>
-
-            </div>
-            `
-
-          );
-
-        }
+      $("#content").load(page,function(){
 
         $("#content").fadeIn(200);
 
@@ -63,18 +37,12 @@ $(document).ready(function(){
 
 
 
-
-  // =========================
   // DEFAULT PAGE
-  // =========================
   loadPage("dashboard.html");
 
 
 
-
-  // =========================
   // MENU CLICK
-  // =========================
   $(document).on(
     "click",
     ".menu",
@@ -96,15 +64,9 @@ $(document).ready(function(){
 
       loadPage(page);
 
-    }
-  );
 
 
-
-
-  // =========================
   // FLOAT BUTTON
-  // =========================
   $(".fab").click(function(){
 
     alert(
@@ -115,10 +77,7 @@ $(document).ready(function(){
 
 
 
-
-  // =========================
   // DARK MODE
-  // =========================
   $("#themeToggle").click(function(){
 
     $("body").toggleClass(
@@ -160,10 +119,7 @@ $(document).ready(function(){
 
 
 
-
-  // =========================
   // LOAD THEME
-  // =========================
   if(
     localStorage.getItem(
       "theme"
@@ -182,10 +138,7 @@ $(document).ready(function(){
 
 
 
-
-  // =========================
   // LOGIN
-  // =========================
   $(document).on(
     "click",
     "#loginBtn",
@@ -256,10 +209,7 @@ $(document).ready(function(){
 
 
 
-
-  // =========================
   // LOGOUT
-  // =========================
   $(document).on(
     "click",
     "#logoutBtn",
@@ -276,40 +226,6 @@ $(document).ready(function(){
 
     }
   );
-
-
-
-
-  // =========================
-  // SERVICE WORKER
-  // =========================
-  if(
-    "serviceWorker" in navigator
-  ){
-
-    navigator.serviceWorker
-    .register(
-      "service-worker.js"
-    )
-
-    .then(function(){
-
-      console.log(
-        "Service Worker aktif 🚀"
-      );
-
-    })
-
-    .catch(function(error){
-
-      console.log(
-        "Service Worker gagal 😭",
-        error
-      );
-
-    });
-
-  }
 
 
 
