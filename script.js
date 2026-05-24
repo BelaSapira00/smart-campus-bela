@@ -23,22 +23,54 @@ $(document).ready(function(){
   // LOAD PAGE
   function loadPage(page){
 
-    $("#content").fadeOut(200,function(){
+    $("#content").fadeOut(
+      200,
+      function(){
 
-      $("#content").load(page,function(){
+        $("#content").load(
+          page,
 
-        $("#content").fadeIn(200);
+          function(response,status){
 
-      });
+            if(status == "error"){
 
-    });
+              $("#content").html(
+
+                `
+                <div class="card">
+
+                  <h2>
+                    Halaman tidak ditemukan 😭
+                  </h2>
+
+                  <p>
+                    File ${page} gagal dimuat.
+                  </p>
+
+                </div>
+                `
+
+              );
+
+            }
+
+            $("#content").fadeIn(200);
+
+          }
+
+        );
+
+      }
+    );
 
   }
 
 
 
+
   // DEFAULT PAGE
   loadPage("dashboard.html");
+
 
 
 
@@ -64,6 +96,10 @@ $(document).ready(function(){
 
       loadPage(page);
 
+    }
+  );
+
+
 
 
   // FLOAT BUTTON
@@ -77,6 +113,7 @@ $(document).ready(function(){
 
 
 
+
   // DARK MODE
   $("#themeToggle").click(function(){
 
@@ -86,7 +123,7 @@ $(document).ready(function(){
 
 
 
-    // ICON
+    // CHANGE ICON
     if(
       $("body").hasClass(
         "dark-mode"
@@ -102,7 +139,9 @@ $(document).ready(function(){
         "dark"
       );
 
-    }else{
+    }
+
+    else{
 
       $("#themeToggle").html(
         "☀️"
@@ -116,6 +155,7 @@ $(document).ready(function(){
     }
 
   });
+
 
 
 
@@ -135,6 +175,7 @@ $(document).ready(function(){
     );
 
   }
+
 
 
 
@@ -209,6 +250,7 @@ $(document).ready(function(){
 
 
 
+
   // LOGOUT
   $(document).on(
     "click",
@@ -226,6 +268,38 @@ $(document).ready(function(){
 
     }
   );
+
+
+
+
+  // SERVICE WORKER
+  if(
+    "serviceWorker" in navigator
+  ){
+
+    navigator.serviceWorker
+    .register(
+      "service-worker.js"
+    )
+
+    .then(function(){
+
+      console.log(
+        "Service Worker aktif 🚀"
+      );
+
+    })
+
+    .catch(function(error){
+
+      console.log(
+        "SW gagal 😭",
+        error
+      );
+
+    });
+
+  }
 
 
 
