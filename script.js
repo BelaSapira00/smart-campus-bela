@@ -74,31 +74,6 @@ $(document).ready(function(){
 
 
 
-      // AUTO CLOSE MOBILE MENU
-      $("#navMenu").removeClass(
-        "show"
-      );
-
-    }
-
-  );
-
-
-
-
-
-  // HAMBURGER
-  $(document).on(
-
-    "click",
-
-    ".menu-toggle",
-
-    function(){
-
-      $("#navMenu").toggleClass(
-        "show"
-      );
 
     }
 
