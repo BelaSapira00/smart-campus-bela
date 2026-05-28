@@ -12,18 +12,7 @@
 
 <!-- JQUERY -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
 
-if(typeof jQuery == "undefined"){
-
-  document.write(`
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"><\/script>
-  `);
-
-}
-
-</script>
-  
 <style>
 
 :root{
@@ -127,7 +116,7 @@ nav{
 .right-menu{
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:20px;
 }
 
 
@@ -171,19 +160,18 @@ nav{
 
 /* THEME */
 #themeToggle{
-  position:relative;
 
-  z-index:2000;
-
-  font-size:22px;
+  font-size:24px;
 
   cursor:pointer;
 
-  color:white;
+  color:#ffffff;
 
-  transition:0.3s;
-  
-  user-select:none;
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
 
 }
 
