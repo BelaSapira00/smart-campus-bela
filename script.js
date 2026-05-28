@@ -20,51 +20,21 @@ $(document).ready(function(){
 
 
 
+
   // LOAD PAGE
   function loadPage(page){
 
-    $("#content").fadeOut(
-      200,
-      function(){
+    $("#content").fadeOut(200,function(){
 
-        $("#content").load(
-          page,
+      $("#content").load(page,function(){
 
-          function(response,status){
+        $("#content").fadeIn(200);
 
-            if(status == "error"){
+      });
 
-              $("#content").html(
-
-                `
-                <div class="card">
-
-                  <h2>
-                    Halaman tidak ditemukan 😭
-                  </h2>
-
-                  <p>
-                    File ${page} gagal dimuat.
-                  </p>
-
-                </div>
-                `
-
-              );
-
-            }
-
-            $("#content").fadeIn(200);
-
-          }
-
-        );
-
-      }
-    );
+    });
 
   }
-
 
 
 
@@ -74,10 +44,14 @@ $(document).ready(function(){
 
 
 
+
   // MENU CLICK
   $(document).on(
+
     "click",
+
     ".menu",
+
     function(e){
 
       e.preventDefault();
@@ -96,79 +70,158 @@ $(document).ready(function(){
 
       loadPage(page);
 
+
+
+
+
+      // AUTO CLOSE MOBILE MENU
+      $("#navMenu").removeClass(
+        "show"
+      );
+
     }
+
   );
 
 
 
 
+
+  // HAMBURGER
+  $(document).on(
+
+    "click",
+
+    ".menu-toggle",
+
+    function(){
+
+      $("#navMenu").toggleClass(
+        "show"
+      );
+
+    }
+
+  );
+
+
+
+
+
   // FLOAT BUTTON
-  $(".fab").click(function(){
+  $(document).on(
 
-    alert(
-      "🚀 Tombol aksi ditekan!"
-    );
+    "click",
 
-  });
+    ".fab",
+
+    function(){
+
+      alert(
+        "🚀 Tombol aksi ditekan!"
+      );
+
+    }
+
+  );
+
 
 
 
 
   // DARK MODE
-  $("#themeToggle").click(function(){
+  $(document).on(
 
-    $("body").toggleClass(
-      "dark-mode"
-    );
+    "click",
 
+    "#themeToggle",
 
+    function(){
 
-    // CHANGE ICON
-    if(
-      $("body").hasClass(
+      $("body").toggleClass(
         "dark-mode"
-      )
-    ){
-
-      $("#themeToggle").html(
-        "🌙"
       );
 
-      localStorage.setItem(
-        "theme",
-        "dark"
-      );
+
+
+
+
+      // ICON THEME
+      if(
+
+        $("body").hasClass(
+          "dark-mode"
+        )
+
+      ){
+
+        $("#themeToggle").html(
+          "☀️"
+        );
+
+        localStorage.setItem(
+          "theme",
+          "dark"
+        );
+
+      }
+
+      else{
+
+        $("#themeToggle").html(
+          "🌙"
+        );
+
+        localStorage.setItem(
+          "theme",
+          "light"
+        );
+
+      }
+
+
+
+
+
+      // TOAST
+      $("#toast")
+      .stop(true,true)
+      .fadeIn();
+
+      setTimeout(function(){
+
+        $("#toast").fadeOut();
+
+      },1500);
 
     }
 
-    else{
+  );
 
-      $("#themeToggle").html(
-        "☀️"
-      );
-
-      localStorage.setItem(
-        "theme",
-        "light"
-      );
-
-    }
-
-  });
 
 
 
 
   // LOAD THEME
   if(
+
     localStorage.getItem(
       "theme"
     ) == "dark"
+
   ){
 
     $("body").addClass(
       "dark-mode"
     );
+
+    $("#themeToggle").html(
+      "☀️"
+    );
+
+  }
+
+  else{
 
     $("#themeToggle").html(
       "🌙"
@@ -179,10 +232,14 @@ $(document).ready(function(){
 
 
 
+
   // LOGIN
   $(document).on(
+
     "click",
+
     "#loginBtn",
+
     function(){
 
       let username =
@@ -193,12 +250,19 @@ $(document).ready(function(){
 
 
 
+
+
       $("#userError").text("");
+
       $("#passError").text("");
 
 
 
+
+
       let valid = true;
+
+
 
 
 
@@ -215,6 +279,8 @@ $(document).ready(function(){
 
 
 
+
+
       // PASSWORD
       if(password.length < 6){
 
@@ -225,6 +291,8 @@ $(document).ready(function(){
         valid = false;
 
       }
+
+
 
 
 
@@ -246,15 +314,20 @@ $(document).ready(function(){
       }
 
     }
+
   );
+
 
 
 
 
   // LOGOUT
   $(document).on(
+
     "click",
+
     "#logoutBtn",
+
     function(){
 
       localStorage.clear();
@@ -267,39 +340,8 @@ $(document).ready(function(){
       "login.html";
 
     }
+
   );
-
-
-
-
-  // SERVICE WORKER
-  if(
-    "serviceWorker" in navigator
-  ){
-
-    navigator.serviceWorker
-    .register(
-      "service-worker.js"
-    )
-
-    .then(function(){
-
-      console.log(
-        "Service Worker aktif 🚀"
-      );
-
-    })
-
-    .catch(function(error){
-
-      console.log(
-        "SW gagal 😭",
-        error
-      );
-
-    });
-
-  }
 
 
 
