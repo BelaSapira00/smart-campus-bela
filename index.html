@@ -7,8 +7,10 @@
 
 <title>Smart Campus Bela</title>
 
+<!-- PWA -->
 <link rel="manifest" href="manifest.json">
 
+<!-- JQUERY -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
@@ -100,6 +102,9 @@ nav{
   z-index:1000;
 }
 
+
+
+/* LOGO */
 .logo{
   font-size:24px;
   font-weight:bold;
@@ -111,15 +116,65 @@ nav{
 .right-menu{
   display:flex;
   align-items:center;
-  gap:15px;
+  gap:18px;
 }
 
 
 
 /* NOTIF */
+.notif-wrapper{
+  position:relative;
+}
+
 .notif-btn{
-  font-size:24px;
+  font-size:22px;
   cursor:pointer;
+  color:white;
+}
+
+.notif-badge{
+
+  position:absolute;
+
+  top:-5px;
+  right:-8px;
+
+  background:#ff6b6b;
+
+  color:white;
+
+  width:18px;
+  height:18px;
+
+  border-radius:50%;
+
+  font-size:11px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}
+
+
+
+/* THEME */
+#themeToggle{
+
+  font-size:22px;
+
+  cursor:pointer;
+
+  color:white;
+
+  transition:0.3s;
+
+}
+
+#themeToggle:hover{
+
+  transform:scale(1.1);
+
 }
 
 
@@ -139,6 +194,7 @@ nav{
   border-radius:20px;
   box-shadow:0 5px 15px rgba(0,0,0,0.08);
   margin-bottom:20px;
+  transition:0.3s;
 }
 
 
@@ -146,14 +202,14 @@ nav{
 /* FLOAT BUTTON */
 .fab{
   position:fixed;
-  right:20px;
   bottom:90px;
+  right:20px;
 
   width:55px;
   height:55px;
 
-  border:none;
   border-radius:50%;
+  border:none;
 
   background:var(--pink);
   color:var(--navy);
@@ -162,38 +218,9 @@ nav{
 
   cursor:pointer;
 
-  z-index:9999;
-
   box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
 
-
-
-/* THEME BUTTON */
-#themeToggle{
-
-  position:fixed;
-
-  left:20px;
-  bottom:90px;
-
-  width:60px;
-  height:60px;
-
-  border:none;
-  border-radius:50%;
-
-  background:#1e2a38;
-  color:white;
-
-  font-size:26px;
-
-  cursor:pointer;
-
-  z-index:999999;
-
-  box-shadow:0 5px 20px rgba(0,0,0,0.3);
-
+  z-index:999;
 }
 
 
@@ -213,7 +240,7 @@ nav{
 
   display:none;
 
-  z-index:99999;
+  z-index:9999;
 }
 
 
@@ -244,13 +271,17 @@ nav{
   font-weight:bold;
 }
 
+.active{
+  color:#e9a6c3 !important;
+}
+
 
 
 /* MOBILE */
 @media(max-width:768px){
 
-  .bottom-nav a{
-    font-size:12px;
+  .logo{
+    font-size:20px;
   }
 
 }
@@ -280,19 +311,44 @@ nav{
 <!-- NAVBAR -->
 <nav>
 
+  <!-- LOGO -->
   <div class="logo">
+
     SmartCampus
+
   </div>
 
 
 
+  <!-- RIGHT MENU -->
   <div class="right-menu">
 
-    <!-- NOTIF -->
-    <div class="notif-btn menu"
-         data-page="notifikasi.html">
 
-      🔔
+
+    <!-- NOTIF -->
+    <div class="notif-wrapper">
+
+      <div class="notif-btn menu"
+           data-page="notifikasi.html">
+
+        🔔
+
+      </div>
+
+      <span class="notif-badge">
+
+        1
+
+      </span>
+
+    </div>
+
+
+
+    <!-- THEME -->
+    <div id="themeToggle">
+
+      🌙
 
     </div>
 
@@ -316,19 +372,10 @@ nav{
 
 
 
-<!-- THEME BUTTON -->
-<button id="themeToggle">
-
-  ☀️
-
-</button>
-
-
-
 <!-- TOAST -->
 <div id="toast">
 
-  Selamat datang Bela 💖
+  Mode tampilan diubah!
 
 </div>
 
@@ -345,8 +392,6 @@ nav{
 
   </a>
 
-
-
   <a href="#"
      class="menu"
      data-page="jadwal.html">
@@ -355,8 +400,6 @@ nav{
 
   </a>
 
-
-
   <a href="#"
      class="menu"
      data-page="tugas.html">
@@ -364,8 +407,6 @@ nav{
     📚 Tugas
 
   </a>
-
-
 
   <a href="#"
      class="menu"
