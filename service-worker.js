@@ -1,4 +1,4 @@
-const CACHE_NAME = "smart-campus-v3";
+const CACHE_NAME = "smart-campus-v4";
 
 const urlsToCache = [
 
